@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to @task
+      redirect_to @task, notice: 'Tarea actualizada correctamente'
     else
       render :new
     end
@@ -27,12 +27,17 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-
+    @task.update(completed: true)
     if @task.update(task_params)
+      @task.save
       redirect_to @task
     else
       render :edit
     end
+  end
+
+  def completed_status
+    completed? ? 'Completada' : 'Pendiente'
   end
 
   def destroy
