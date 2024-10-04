@@ -45,6 +45,15 @@ class TasksController < ApplicationController
     redirect_to tasks_path, notice: 'Task deleted successfully'
   end
 
+  def reminder(task)
+    @task = task
+    mail(to: task.user.email, subject: 'Recordatorio de tarea')
+  end
+  
+  def send_reminder
+    TaskMailer.with(task: self).reminder.deliver_now
+  end
+
   private
 
   def task_params
