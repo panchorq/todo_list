@@ -15,9 +15,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to @task, notice: 'Tarea actualizada correctamente'
+      redirect_to @task, notice: 'Task created successfully'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,26 +29,25 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.update(completed: true)
     if @task.update(task_params)
-      @task.save
-      redirect_to @task
+      redirect_to @task, notice: 'Task updated successfully'
     else
       render :edit
     end
   end
 
   def completed_status
-    completed? ? 'Completada' : 'Pendiente'
+    completed? ? 'Completed' : 'Pending'
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to tasks_path
+    redirect_to tasks_path, notice: 'Task deleted successfully'
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:title, :description, :completed, :deadline)
   end
 end

@@ -1,14 +1,25 @@
-<h1>Tarea</h1>
+<h1>Task</h1>
 
 <p>
-  <strong>Título:</strong>
+  <strong>Title:</strong>
   <%= @task.title %>
 </p>
 
 <p>
-  <strong>Descripción:</strong>
+  <strong>Description:</strong>
   <%= @task.description %>
 </p>
 
-<%= link_to 'Editar', edit_task_path(@task) %> |
-<%= link_to 'Regresar', tasks_path %>
+<p>
+  <strong>Completed:</strong>
+  <%= @task.completed ? 'Sí' : 'No' %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @task.deadline %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+ <%= link_to "Delete", task_path(@task),method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to 'Back', tasks_path %>

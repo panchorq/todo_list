@@ -1,4 +1,4 @@
-<h1><%= @task.new_record? ? 'Nueva tarea' : 'Editar tarea' %></h1>
+<h1><%= @task.new_record? ? 'New task' : 'Edit task' %></h1>
 
 <%= form_with(model: @task) do |form| %>
   <div>
@@ -15,6 +15,9 @@
     <%= form.label :completed %>
     <%= form.check_box :completed %>
   </div>
+
+   <%= form.label :deadline %>
+  <%= form.datetime_field :deadline %>
 
   <div>
     <%= form.submit %>
