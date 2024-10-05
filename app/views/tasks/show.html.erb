@@ -18,8 +18,11 @@
 <p>
   <strong>Deadline:</strong>
   <%= @task.deadline %>
+  <% if @task.urgent? %>
+    <span class="badge bg-danger float-end">You have less than 24 hours until this task expires!</span>
+    <i class="fas fa-clock text-danger"></i>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to "Delete", task_path(@task),method: :delete, data: { confirm: "Are you sure?" } %> |
 <%= link_to 'Back', tasks_path %>

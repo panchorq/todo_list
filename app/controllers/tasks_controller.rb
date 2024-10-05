@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @tasks = Task.all
   end
 
   def new
@@ -52,6 +53,10 @@ class TasksController < ApplicationController
   
   def send_reminder
     TaskMailer.with(task: self).reminder.deliver_now
+  end
+
+  def urgent?
+    deadline <= 24.hours.from_now
   end
 
   private
