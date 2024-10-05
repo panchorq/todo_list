@@ -1,31 +1,22 @@
 <h1><%= @task.new_record? ? 'New task' : 'Edit task' %></h1>
 
-<%= form_with(model: @task) do |form| %>
-<% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2 class= alert alert-danger ><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
-      <ul>
-        <% @task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<%= form_with(model: @task, class: "row g-3 needs-validation") do |form| %>
+  <div class="col-12">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", required: true %>
   </div>
 
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="col-12">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", rows: 3 %>
   </div>
 
-   <%= form.label :deadline %>
-  <%= form.datetime_field :deadline %>
+  <div class="col-12">
+    <%= form.label :deadline, class: "form-label" %>
+    <%= form.datetime_field :deadline, class: "form-control", required: true %>
+  </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="col-12">
+    <button type="submit" class="btn btn-success btn-sm">Submit</button>
+  </div>
 <% end %>

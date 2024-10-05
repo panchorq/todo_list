@@ -20,7 +20,7 @@
         <td class="px-3 mb-2"><%= task.deadline %></td>
         <td type="button" class="px-2 mx-2 btn-sm mb-2 btn btn-success"><%= link_to 'Show', task, class: "button-as-link" %></td> 
         <td type="button" class="px-2 mx-2 btn-sm mb-2 btn btn-success"><%= link_to 'Edit', edit_task_path(task), class: "button-as-link" %></td>
-        <td type="button" class="px-2 mx-2 btn-sm mb-2 btn btn-success"><%= button_to "Delete", task, method: :delete, data: { confirm: "Are you sure?" }, class: "button-as-link" %></td>
+        <td type="button" class="px-2 mx-2 btn-sm mb-2 btn btn-success"><%= button_to "Delete", task, method: :delete, class: "button-as-link" %></td>
       </tr>
     </div>
     <% end %>

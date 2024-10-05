@@ -1,24 +1,28 @@
-<h1><%= @task.new_record? ? 'New task' : 'Edit task' %></h1>
+<h1><%= @task.new_record? ? 'New Task' : 'Edit Task' %></h1>
 
-<%= form_with(model: @task) do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+
+<%= form_with(model: @task, class: "row g-3 needs-validation") do |form| %>
+  <div class="col-12">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", required: true %>
   </div>
 
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="col-12">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", rows: 3 %>
   </div>
 
-  <div>
-    <%= form.label :completed %>
-    <%= form.check_box :completed %>
+  <div class="col-12">
+    <%= form.label :completed, class: "form-label" %>
+    <%= form.check_box :completed, class: "form-check-input" %>
   </div>
 
-   <%= form.label :deadline %>
-  <%= form.datetime_field :deadline %>
+  <div class="col-12">
+    <%= form.label :deadline, class: "form-label" %>
+    <%= form.datetime_field :deadline, class: "form-control", required: true %>
+  </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="col-12">
+    <button type="submit" class="btn btn-success btn-sm">Submit</button>
+  </div>
 <% end %>
