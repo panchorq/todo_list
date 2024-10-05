@@ -1,28 +1,30 @@
 <h1>Task</h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
+<div class="card <%= 'border-danger' if @task.urgent? %>">
+  <p class="ms-2">
+    <strong>Title:</strong>
+    <%= @task.title %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
+  <p class="ms-2">
+    <strong>Description:</strong>
+    <%= @task.description %>
+  </p>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @task.completed ? 'Sí' : 'No' %>
-</p>
+  <p class="ms-2">
+    <strong>Completed:</strong>
+    <%= @task.completed ? 'Sí' : 'No' %>
+  </p>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @task.deadline %>
-  <% if @task.urgent? %>
-    <span class="badge bg-danger float-end">You have less than 24 hours until this task expires!</span>
-    <i class="fas fa-clock text-danger"></i>
-  <% end %>
-</p>
+  <p class="ms-2">
+    <strong>Deadline:</strong>
+    <%= @task.deadline %>
+    <% if @task.urgent? %>
+      <span class="badge bg-danger me-2 float-end">You have less than 24 hours until this task expires!</span>
+      <i class="fas fa-clock text-danger"></i>
+    <% end %>
+  </p>
+</div>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+  <%= link_to 'Edit', edit_task_path(@task) %> |
+  <%= link_to 'Back',tasks_path%>

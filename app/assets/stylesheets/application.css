@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ /* En tu archivo de estilos CSS */
+.button-as-link {
+    background: none;
+    border: none;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
