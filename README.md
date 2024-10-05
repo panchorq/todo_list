@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Proyecto: ToDoList
 
-Things you may want to cover:
+Tecnologías Utilizadas:
 
-* Ruby version
+Framework: Ruby on Rails 7.2.1
+Base de datos: PostgreSQL
 
-* System dependencies
+Instalación:
 
-* Configuration
+Clonar el repositorio:
+git clone https://github.com/panchorq/todo_list.git
 
-* Database creation
+Instalar las dependencias:
+cd todo_list
+bundle install
 
-* Database initialization
+Credenciales: 
+Ingresar tus credenciales de Postgres
 
-* How to run the test suite
+Configurar la base de datos:
+Crear la base de datos:
+rails db:create
 
-* Services (job queues, cache servers, search engines, etc.)
+Ejecutar las migraciones:
+rails db:migrate
 
-* Deployment instructions
+Iniciar el servidor de desarrollo:
+rails s
 
-* ...
+Accede a tu aplicación en http://localhost:3000
