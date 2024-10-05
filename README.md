@@ -16,10 +16,9 @@ Instalar las dependencias:
 cd todo_list
 bundle install
 
-Credenciales: 
-Ingresar tus credenciales de Postgres
-
 Configurar la base de datos:
+Cambie las credenciales de Postgres (username y password) por las suyas en "config/database.yml"
+
 Crear la base de datos:
 rails db:create
 
